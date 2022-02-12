@@ -47,3 +47,8 @@ class Snake:
             self.snake_segments[seg_num].goto(new_x, new_y)
         self.snake_segments[0].forward(20)
         self.last_direction = self.snake_segments[0].heading()
+
+    def reset_snake(self):
+        for snakes in self.snake_segments:
+            snakes.hideturtle()
+        self.__init__()

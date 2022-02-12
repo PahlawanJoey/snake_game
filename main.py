@@ -50,14 +50,14 @@ while game_on:
         food.respawn_food()
     if abs(snake.snake_segments[0].xcor()) > screen.window_width() // 2 or abs(
             snake.snake_segments[0].ycor()) > screen.window_height() // 2:
-        scoreboard.game_over()
+        scoreboard.reset_scoreboard()
+        snake.reset_snake()
         if ask_play_again():
             again()
-        break
     for bodypart in snake.snake_segments[1:]:
         if snake.snake_segments[0].distance(bodypart) < 10:
-            scoreboard.game_over()
-            game_on = False
+            scoreboard.reset_scoreboard()
+            snake.reset_snake()
             if ask_play_again():
                 again()
 screen.exitonclick()
